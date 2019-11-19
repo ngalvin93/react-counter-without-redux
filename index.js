@@ -8,9 +8,7 @@ class Counter extends React.Component {
 
     countUp = () => {
         const stateCopy = {...this.state}
-        console.log(stateCopy)
-        const newCount = stateCopy.count + 1
-        console.log(newCount)
+        const newCount = ++stateCopy.count
         this.setState({
             count: newCount
         })
@@ -18,20 +16,34 @@ class Counter extends React.Component {
 
     countDown = () => {
         const stateCopy = {...this.state}
-        console.log(stateCopy)
-        const newCount = stateCopy.count - 1
-        console.log(newCount)
+        const newCount = --stateCopy.count
         this.setState({
             count: newCount
         })
     }
 
     render() {
+        const divStyle = {
+            margin: 'auto',
+            textAlign: 'center',
+            fontSize: '50px',
+            fontFamily: 'Helvetica'
+        }
+        const buttonStyle = {
+            padding: '12px',
+            background: 'blue',
+            color: 'white',
+            fontSize: '20px',
+            width: '100px',
+            border: 'none',
+            borderRadius: '5px',
+            margin: '5px'
+        }
         return (
-            <div>
+            <div style={ divStyle }>
                 <h1>{ this.state.count }</h1>
-                <button onClick={ this.countUp }>+</button>
-                <button onClick={ this.countDown }>-</button>
+                <button style ={ buttonStyle } onClick={ this.countUp }>+</button>
+                <button style ={ buttonStyle } onClick={ this.countDown }>-</button>
             </div>
         )
     }
